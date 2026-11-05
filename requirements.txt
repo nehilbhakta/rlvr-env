@@ -1,0 +1,2 @@
+gymnasium>=0.29
+pytest>=8.0
