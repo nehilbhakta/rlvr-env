@@ -77,12 +77,38 @@ code at all. The oracle submits each task's reference solution and must score
 - `evaluate.py` — heuristic baseline + oracle evaluation, pass rates per category
 - `tests/test_env.py` — pytest suite
 
+## Experiment: tiny model trained on this env
+
+A 299,136-parameter decoder-only transformer trained from scratch on
+generated variants of these 20 tasks lives in
+[`experiments/tiny-model/`](experiments/tiny-model/) — 4,197 training
+examples, 45 epochs, CPU-only, ~35 minutes, training loss 3.98 → 0.21.
+No RL pass was run.
+
+| Agent | Code | Math | Total |
+| --- | --- | --- | --- |
+| Heuristic baseline | 0/10 | 2/10 | **2/20** |
+| Tiny model | 5/10 | 2/10 | **7/20** |
+| Oracle | 10/10 | 10/10 | **20/20** |
+
+On 210 held-out prompts with numbers never seen in training, the honest
+picture is mixed: baseline 40/210, tiny model 17/210. The baseline's 40
+come entirely from the two bare-arithmetic templates (math-01, math-10),
+where its regex calculator is perfect (20/20 each) and the model scores
+0/20 — it never learned general arithmetic. Where the model actually wins
+on held-out data is code (5/10 vs 0/10). Its GCD score (11/20) is not GCD
+learned: it answers "1" to nearly every GCD prompt and passes only when
+the GCD actually is 1. Full results, per-example outputs, and the "what it
+cannot do" list are in
+[`experiments/tiny-model/README.md`](experiments/tiny-model/README.md).
+
 ## Honest limitations
 
-- **No model training here.** This repo is the environment and the verifiers,
-  not an RL training run. A next step would be wiring it to a real policy
-  (e.g. GRPO fine-tuning of a small model with TRL) — the env's Gymnasium
-  API is designed for that.
+- **A model was trained on it — once, small, supervised.**
+  `experiments/tiny-model/` is a from-scratch SFT run, not an RL run. A
+  next step would be wiring the env to a real RL loop (e.g. GRPO
+  fine-tuning of a small model with TRL) using the verifiers as the
+  reward — the env's Gymnasium API is designed for that.
 - **Binary rewards.** A submission is 1.0 or 0.0; there is no partial credit
   for code that passes most tests. That is deliberate — verifiable rewards
   are sharp — but it makes the reward signal sparse.

@@ -1,0 +1,2202 @@
+{
+  "model": "tiny decoder-only transformer trained from scratch (see README)",
+  "checkpoint": "/home/hatch/workspace/rlvr-training/checkpoints/model.pt",
+  "eval": {
+    "math_per_task": 20,
+    "heldout_seed": 987654,
+    "n_tasks": 210,
+    "split": "Held-out math variants generated from parameter ranges disjoint from training (see data.py splits); no held-out math prompt appears in training (verified overlap: 0 of 200 math prompts). Code tasks use the env's 10 fixed prompts, scored by the hidden unit tests."
+  },
+  "overall": {
+    "trained_passed": 17,
+    "baseline_passed": 40,
+    "total": 210
+  },
+  "by_category": {
+    "code": {
+      "passed": 5,
+      "total": 10,
+      "baseline_passed": 0
+    },
+    "math": {
+      "passed": 12,
+      "total": 200,
+      "baseline_passed": 40
+    }
+  },
+  "per_task": {
+    "code-01": {
+      "passed": 1,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-02": {
+      "passed": 0,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-03": {
+      "passed": 1,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-04": {
+      "passed": 0,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-05": {
+      "passed": 1,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-06": {
+      "passed": 1,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-07": {
+      "passed": 1,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-08": {
+      "passed": 0,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-09": {
+      "passed": 0,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "code-10": {
+      "passed": 0,
+      "total": 1,
+      "baseline_passed": 0
+    },
+    "math-01": {
+      "passed": 0,
+      "total": 20,
+      "baseline_passed": 20
+    },
+    "math-02": {
+      "passed": 1,
+      "total": 20,
+      "baseline_passed": 0
+    },
+    "math-03": {
+      "passed": 0,
+      "total": 20,
+      "baseline_passed": 0
+    },
+    "math-04": {
+      "passed": 0,
+      "total": 20,
+      "baseline_passed": 0
+    },
+    "math-05": {
+      "passed": 0,
+      "total": 20,
+      "baseline_passed": 0
+    },
+    "math-06": {
+      "passed": 0,
+      "total": 20,
+      "baseline_passed": 0
+    },
+    "math-07": {
+      "passed": 0,
+      "total": 20,
+      "baseline_passed": 0
+    },
+    "math-08": {
+      "passed": 11,
+      "total": 20,
+      "baseline_passed": 0
+    },
+    "math-09": {
+      "passed": 0,
+      "total": 20,
+      "baseline_passed": 0
+    },
+    "math-10": {
+      "passed": 0,
+      "total": 20,
+      "baseline_passed": 20
+    }
+  },
+  "rows": [
+    {
+      "task_id": "code-01",
+      "category": "code",
+      "prompt": "Write a function `add(a, b)` that returns the sum of a and b.",
+      "model_answer": "def add(a, b):\n    return a + b\n",
+      "passed": true,
+      "detail": "all 4 tests passed",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-02",
+      "category": "code",
+      "prompt": "Write a function `is_prime(n)` that returns True if n is a prime number, else False. Treat numbers less than 2 as not prime.",
+      "model_answer": "def is_prime(n):\n    if n ch in s.lower() if ch in 'aeiou')\n",
+      "passed": false,
+      "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 2)",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-03",
+      "category": "code",
+      "prompt": "Write a function `reverse_string(s)` that returns s reversed.",
+      "model_answer": "def reverse_string(s):\n    return s[::-1]\n",
+      "passed": true,
+      "detail": "all 4 tests passed",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-04",
+      "category": "code",
+      "prompt": "Write a function `fizzbuzz_value(n)` that returns 'FizzBuzz' if n is divisible by both 3 and 5, 'Fizz' if divisible by 3 only, 'Buzz' if divisible by 5 only, otherwise the string form of n.",
+      "model_answer": "def fizzbuzz_value(n):\n    if n % 15 == 0:\n        return 'FizzBuzz'\n    if n % 2, + 0:\n        return 'Fizz'\n    if n % 5 == 0:\n        return 'Buzz'\n    return str(n)\n",
+      "passed": false,
+      "detail": "code did not run: SyntaxError: invalid syntax (<string>, line 4)",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-05",
+      "category": "code",
+      "prompt": "Write a function `factorial(n)` that returns n! for a non-negative integer n. factorial(0) is 1.",
+      "model_answer": "def factorial(n):\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n",
+      "passed": true,
+      "detail": "all 4 tests passed",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-06",
+      "category": "code",
+      "prompt": "Write a function `fibonacci(n)` that returns the n-th Fibonacci number, with fibonacci(0) = 0 and fibonacci(1) = 1.",
+      "model_answer": "def fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+      "passed": true,
+      "detail": "all 6 tests passed",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-07",
+      "category": "code",
+      "prompt": "Write a function `count_vowels(s)` that returns the number of vowels (a, e, i, o, u, case-insensitive) in s.",
+      "model_answer": "def count_vowels(s):\n    return sum(1 for ch in s.lower() if ch in 'aeiou')\n",
+      "passed": true,
+      "detail": "all 5 tests passed",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-08",
+      "category": "code",
+      "prompt": "Write a function `merge_sorted(a, b)` that takes two sorted lists of numbers and returns one sorted list containing all elements.",
+      "model_answer": "def forge_sorted(a, b):\n  1):\n      ge(n):\n           b = b, a len(a)  resurn a\n",
+      "passed": false,
+      "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 2)",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-09",
+      "category": "code",
+      "prompt": "Write a function `binary_search(arr, target)` that returns the index of target in the sorted list arr, or -1 if target is not present.",
+      "model_answer": "def binarangear  n + 1):\n      ged):\n         a, returr) - 1\n     return arn(b):\n           if (lo + hi) //           if arr[mid] == target:\n            return mid\n        if arr[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n",
+      "passed": false,
+      "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 1)",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "code-10",
+      "category": "code",
+      "prompt": "Write a function `flatten(nested)` that takes a list that may contain nested lists (one level deep) and returns a flat list of all elements, in order.",
+      "model_answer": "def flatten(nested):\n    out = []\n    for item in nested:\n        if isinstance(item, list):\n            out.end(nd(item)\n        else:\n            out.append(item)\n    return out\n",
+      "passed": false,
+      "detail": "code did not run: SyntaxError: '(' was never closed (<string>, line 5)",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 48 * 76 + 59? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 3707.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 54 * 85 + 86? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 4676.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 65 * 57 + 53? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 3758.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 48 * 41 + 39? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 2007.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 93 * 99 + 78? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 9285.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 76 * 51 + 19? Give only the number.",
+      "model_answer": "495",
+      "passed": false,
+      "detail": "answer 495.0 != 3895.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 52 * 95 + 13? Give only the number.",
+      "model_answer": "495",
+      "passed": false,
+      "detail": "answer 495.0 != 4953.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 68 * 43 + 91? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 3015.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 84 * 61 + 69? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 5193.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 49 * 46 + 29? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 2283.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 72 * 48 + 62? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 3518.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 65 * 70 + 83? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 4633.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 95 * 86 + 44? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 8214.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 84 * 42 + 65? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 3593.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 83 * 98 + 71? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 8205.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 68 * 50 + 51? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 3451.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 84 * 96 + 38? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 8102.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 82 * 65 + 14? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 5344.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 48 * 51 + 65? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 2513.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "prompt": "What is 46 * 82 + 29? Give only the number.",
+      "model_answer": "499",
+      "passed": false,
+      "detail": "answer 499.0 != 3801.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $480 and is discounted by 85%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "180",
+      "passed": false,
+      "detail": "answer 180.0 != 72.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $660 and is discounted by 45%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 363.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $860 and is discounted by 90%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 86.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $660 and is discounted by 55%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "150",
+      "passed": false,
+      "detail": "answer 150.0 != 297.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $620 and is discounted by 15%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 527.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $420 and is discounted by 45%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 231.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $760 and is discounted by 85%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "180",
+      "passed": false,
+      "detail": "answer 180.0 != 114.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $520 and is discounted by 15%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 442.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $520 and is discounted by 5%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 494.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $680 and is discounted by 5%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 646.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $820 and is discounted by 95%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 41.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $620 and is discounted by 80%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 124.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $500 and is discounted by 15%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 425.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $500 and is discounted by 80%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": true,
+      "detail": "answer 100.0 matches 100.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $480 and is discounted by 70%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 144.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $660 and is discounted by 80%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 132.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $780 and is discounted by 55%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "150",
+      "passed": false,
+      "detail": "answer 150.0 != 351.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $840 and is discounted by 5%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 798.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $680 and is discounted by 95%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "150",
+      "passed": false,
+      "detail": "answer 150.0 != 34.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "prompt": "A shirt costs $720 and is discounted by 70%. What is the sale price in dollars? Give only the number.",
+      "model_answer": "100",
+      "passed": false,
+      "detail": "answer 100.0 != 216.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 3x + 13 = 76. Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 21.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 5x + 20 = 140. Give only the number.",
+      "model_answer": "10",
+      "passed": false,
+      "detail": "answer 10.0 != 24.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 8x + 11 = 147. Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 17.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 3x + 8 = 47. Give only the number.",
+      "model_answer": "10",
+      "passed": false,
+      "detail": "answer 10.0 != 13.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 4x + 6 = 62. Give only the number.",
+      "model_answer": "11",
+      "passed": false,
+      "detail": "answer 11.0 != 14.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 2x + 2 = 40. Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 19.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 7x + 5 = 145. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 20.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 3x + 16 = 61. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 15.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 3x + 13 = 70. Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 19.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 9x + 9 = 207. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 22.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 2x + 16 = 54. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 19.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 8x + 11 = 131. Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 15.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 5x + 13 = 128. Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 23.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 2x + 6 = 34. Give only the number.",
+      "model_answer": "11",
+      "passed": false,
+      "detail": "answer 11.0 != 14.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 8x + 5 = 117. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 14.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 2x + 20 = 68. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 24.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 5x + 1 = 121. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 24.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 7x + 6 = 97. Give only the number.",
+      "model_answer": "11",
+      "passed": false,
+      "detail": "answer 11.0 != 13.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 5x + 5 = 70. Give only the number.",
+      "model_answer": "10",
+      "passed": false,
+      "detail": "answer 10.0 != 13.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "prompt": "Solve for x: 2x + 9 = 53. Give only the number.",
+      "model_answer": "11",
+      "passed": false,
+      "detail": "answer 11.0 != 22.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 91 positive integers (1 + 2 + ... + 91)? Give only the number.",
+      "model_answer": "121",
+      "passed": false,
+      "detail": "answer 121.0 != 4186.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 160 positive integers (1 + 2 + ... + 160)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 12880.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 116 positive integers (1 + 2 + ... + 116)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 6786.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 157 positive integers (1 + 2 + ... + 157)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 12403.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 125 positive integers (1 + 2 + ... + 125)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 7875.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 147 positive integers (1 + 2 + ... + 147)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 10878.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 61 positive integers (1 + 2 + ... + 61)? Give only the number.",
+      "model_answer": "121",
+      "passed": false,
+      "detail": "answer 121.0 != 1891.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 120 positive integers (1 + 2 + ... + 120)? Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 7260.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 198 positive integers (1 + 2 + ... + 198)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 19701.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 101 positive integers (1 + 2 + ... + 101)? Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 5151.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 80 positive integers (1 + 2 + ... + 80)? Give only the number.",
+      "model_answer": "320",
+      "passed": false,
+      "detail": "answer 320.0 != 3240.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 108 positive integers (1 + 2 + ... + 108)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 5886.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 68 positive integers (1 + 2 + ... + 68)? Give only the number.",
+      "model_answer": "330",
+      "passed": false,
+      "detail": "answer 330.0 != 2346.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 170 positive integers (1 + 2 + ... + 170)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 14535.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 69 positive integers (1 + 2 + ... + 69)? Give only the number.",
+      "model_answer": "330",
+      "passed": false,
+      "detail": "answer 330.0 != 2415.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 142 positive integers (1 + 2 + ... + 142)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 10153.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 179 positive integers (1 + 2 + ... + 179)? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 16110.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 96 positive integers (1 + 2 + ... + 96)? Give only the number.",
+      "model_answer": "330",
+      "passed": false,
+      "detail": "answer 330.0 != 4656.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 81 positive integers (1 + 2 + ... + 81)? Give only the number.",
+      "model_answer": "121",
+      "passed": false,
+      "detail": "answer 121.0 != 3321.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "prompt": "What is the sum of the first 100 positive integers (1 + 2 + ... + 100)? Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 5050.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 174 km in 1.5 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "30",
+      "passed": false,
+      "detail": "answer 30.0 != 116.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 564 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "76",
+      "passed": false,
+      "detail": "answer 76.0 != 94.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 1190 km in 10 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 119.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 582 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "76",
+      "passed": false,
+      "detail": "answer 76.0 != 97.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 308 km in 3.5 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "30",
+      "passed": false,
+      "detail": "answer 30.0 != 88.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 142.5 km in 1.5 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 95.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 928 km in 8 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "76",
+      "passed": false,
+      "detail": "answer 76.0 != 116.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 255 km in 3 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "75",
+      "passed": false,
+      "detail": "answer 75.0 != 85.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 246 km in 3 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "70",
+      "passed": false,
+      "detail": "answer 70.0 != 82.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 498 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "76",
+      "passed": false,
+      "detail": "answer 76.0 != 83.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 1010 km in 10 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 101.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 534 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "76",
+      "passed": false,
+      "detail": "answer 76.0 != 89.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 135 km in 1.5 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "30",
+      "passed": false,
+      "detail": "answer 30.0 != 90.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 528 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "76",
+      "passed": false,
+      "detail": "answer 76.0 != 88.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 630 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "70",
+      "passed": false,
+      "detail": "answer 70.0 != 105.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 702 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "70",
+      "passed": false,
+      "detail": "answer 70.0 != 117.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 980 km in 10 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "12051204520",
+      "passed": false,
+      "detail": "answer 12051204520.0 != 98.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 820 km in 10 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 82.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 666 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "76",
+      "passed": false,
+      "detail": "answer 76.0 != 111.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "prompt": "A train travels 540 km in 6 hours. What is its average speed in km/h? Give only the number.",
+      "model_answer": "70",
+      "passed": false,
+      "detail": "answer 70.0 != 90.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 20% of 960? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 192.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 65% of 740? Give only the number.",
+      "model_answer": "180",
+      "passed": false,
+      "detail": "answer 180.0 != 481.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 65% of 780? Give only the number.",
+      "model_answer": "180",
+      "passed": false,
+      "detail": "answer 180.0 != 507.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 55% of 680? Give only the number.",
+      "model_answer": "180",
+      "passed": false,
+      "detail": "answer 180.0 != 374.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 5% of 760? Give only the number.",
+      "model_answer": "20",
+      "passed": false,
+      "detail": "answer 20.0 != 38.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 90% of 960? Give only the number.",
+      "model_answer": "280",
+      "passed": false,
+      "detail": "answer 280.0 != 864.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 30% of 660? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 198.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 30% of 620? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 186.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 70% of 640? Give only the number.",
+      "model_answer": "280",
+      "passed": false,
+      "detail": "answer 280.0 != 448.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 55% of 900? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 495.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 25% of 660? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 165.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 25% of 920? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 230.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 20% of 880? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 176.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 65% of 900? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 585.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 95% of 780? Give only the number.",
+      "model_answer": "180",
+      "passed": false,
+      "detail": "answer 180.0 != 741.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 5% of 880? Give only the number.",
+      "model_answer": "20",
+      "passed": false,
+      "detail": "answer 20.0 != 44.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 80% of 880? Give only the number.",
+      "model_answer": "280",
+      "passed": false,
+      "detail": "answer 280.0 != 704.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 25% of 820? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 205.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 40% of 860? Give only the number.",
+      "model_answer": "280",
+      "passed": false,
+      "detail": "answer 280.0 != 344.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "prompt": "What is 10% of 680? Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 68.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 2(x - 8) = 9x - 93. Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 11.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 6(x - 6) = 7x - 48. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 12.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 2(x - 2) = 7x - 79. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 15.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 4(x - 4) = 8x - 56. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 10.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 3(x - 3) = 8x - 74. Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 13.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 5(x - 6) = 8x - 75. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 15.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 2(x - 9) = 7x - 83. Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 13.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 3(x - 5) = 6x - 60. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 15.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 2(x - 2) = 4x - 28. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 12.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 2(x - 5) = 3x - 20. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 10.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 5(x - 4) = 9x - 60. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 10.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 2(x - 3) = 4x - 36. Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 15.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 6(x - 6) = 4x - 10. Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 13.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 3(x - 9) = 4x - 40. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 13.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 4(x - 9) = 5x - 46. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 10.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 2(x - 8) = 9x - 107. Give only the number.",
+      "model_answer": "",
+      "passed": false,
+      "detail": "no number found in answer",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 3(x - 3) = 5x - 31. Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 11.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 5(x - 5) = 6x - 37. Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 12.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 6(x - 9) = 4x - 26. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 14.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "prompt": "Solve for x: 6(x - 5) = 8x - 58. Give only the number.",
+      "model_answer": "6",
+      "passed": false,
+      "detail": "answer 6.0 != 14.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 231 and 344? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 300 and 256? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 4.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 379 and 354? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 297 and 265? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 287 and 231? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 7.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 201 and 260? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 338 and 343? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 241 and 220? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 248 and 208? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 8.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 310 and 209? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 364 and 374? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 2.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 282 and 319? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 236 and 221? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 240 and 328? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 8.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 232 and 305? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 300 and 318? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 6.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 348 and 383? Give only the number.",
+      "model_answer": "1",
+      "passed": true,
+      "detail": "answer 1.0 matches 1.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 270 and 375? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 15.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 208 and 312? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 104.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "prompt": "What is the greatest common divisor (GCD) of 369 and 324? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 9.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 198 and width 40. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 202.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 210 and width 176. What is the length of its diagonal? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 274.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 22 and width 120. What is the length of its diagonal? Give only the number.",
+      "model_answer": "121",
+      "passed": false,
+      "detail": "answer 121.0 != 122.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 270 and width 144. What is the length of its diagonal? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 306.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 24 and width 143. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 145.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 132 and width 85. What is the length of its diagonal? Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 157.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 66 and width 112. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 130.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 196 and width 147. What is the length of its diagonal? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 245.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 29 and width 420. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 421.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 72 and width 154. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 170.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 48 and width 286. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 290.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 28 and width 195. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 197.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 192 and width 56. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 200.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 220 and width 21. What is the length of its diagonal? Give only the number.",
+      "model_answer": "12125",
+      "passed": false,
+      "detail": "answer 12125.0 != 221.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 96 and width 128. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 160.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 115 and width 252. What is the length of its diagonal? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 277.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 48 and width 140. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 148.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 120 and width 182. What is the length of its diagonal? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 218.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 80 and width 192. What is the length of its diagonal? Give only the number.",
+      "model_answer": "125",
+      "passed": false,
+      "detail": "answer 125.0 != 208.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "prompt": "A rectangle has length 144 and width 130. What is the length of its diagonal? Give only the number.",
+      "model_answer": "3",
+      "passed": false,
+      "detail": "answer 3.0 != 194.0",
+      "baseline_passed": false
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^9 - 2^7? Give only the number.",
+      "model_answer": "24",
+      "passed": false,
+      "detail": "answer 24.0 != 384.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^10 - 2^7? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 896.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^11 - 2^6? Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 1984.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^9 - 2^1? Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 510.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^10 - 2^9? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 512.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^13 - 2^3? Give only the number.",
+      "model_answer": "128",
+      "passed": false,
+      "detail": "answer 128.0 != 8184.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^9 - 2^3? Give only the number.",
+      "model_answer": "24",
+      "passed": false,
+      "detail": "answer 24.0 != 504.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^9 - 2^6? Give only the number.",
+      "model_answer": "24",
+      "passed": false,
+      "detail": "answer 24.0 != 448.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^12 - 2^3? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 4088.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^12 - 2^2? Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 4092.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^12 - 2^7? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 3968.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^12 - 2^10? Give only the number.",
+      "model_answer": "2",
+      "passed": false,
+      "detail": "answer 2.0 != 3072.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^14 - 2^5? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 16352.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^14 - 2^1? Give only the number.",
+      "model_answer": "12",
+      "passed": false,
+      "detail": "answer 12.0 != 16382.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^12 - 2^11? Give only the number.",
+      "model_answer": "1",
+      "passed": false,
+      "detail": "answer 1.0 != 2048.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^10 - 2^6? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 960.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^14 - 2^4? Give only the number.",
+      "model_answer": "120",
+      "passed": false,
+      "detail": "answer 120.0 != 16368.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^14 - 2^7? Give only the number.",
+      "model_answer": "128",
+      "passed": false,
+      "detail": "answer 128.0 != 16256.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^9 - 2^2? Give only the number.",
+      "model_answer": "24",
+      "passed": false,
+      "detail": "answer 24.0 != 508.0",
+      "baseline_passed": true
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "prompt": "What is 2^14 - 2^10? Give only the number.",
+      "model_answer": "20",
+      "passed": false,
+      "detail": "answer 20.0 != 15360.0",
+      "baseline_passed": true
+    }
+  ],
+  "eval_seconds": 20.4,
+  "original_20": {
+    "note": "The envs own 20 tasks (rlvr-env/evaluate.py benchmark). Neither of the two original math prompts the model passed (math-01, math-07) appears in the training set (verified).",
+    "trained_passed": 7,
+    "baseline_passed": 2,
+    "total": 20,
+    "by_category": {
+      "code": {
+        "passed": 5,
+        "total": 10,
+        "baseline_passed": 0
+      },
+      "math": {
+        "passed": 2,
+        "total": 10,
+        "baseline_passed": 2
+      }
+    },
+    "rows": [
+      {
+        "task_id": "code-01",
+        "category": "code",
+        "model_answer": "def add(a, b):\n    return a + b\n",
+        "passed": true,
+        "detail": "all 4 tests passed",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-02",
+        "category": "code",
+        "model_answer": "def is_prime(n):\n    if n ch in s.lower() if ch in 'aeiou')\n",
+        "passed": false,
+        "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 2)",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-03",
+        "category": "code",
+        "model_answer": "def reverse_string(s):\n    return s[::-1]\n",
+        "passed": true,
+        "detail": "all 4 tests passed",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-04",
+        "category": "code",
+        "model_answer": "def fizzbuzz_value(n):\n    if n % 15 == 0:\n        return 'FizzBuzz'\n    if n % 2, + 0:\n        return 'Fizz'\n    if n % 5 == 0:\n        return 'Buzz'\n    return str(n)\n",
+        "passed": false,
+        "detail": "code did not run: SyntaxError: invalid syntax (<string>, line 4)",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-05",
+        "category": "code",
+        "model_answer": "def factorial(n):\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n",
+        "passed": true,
+        "detail": "all 4 tests passed",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-06",
+        "category": "code",
+        "model_answer": "def fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+        "passed": true,
+        "detail": "all 6 tests passed",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-07",
+        "category": "code",
+        "model_answer": "def count_vowels(s):\n    return sum(1 for ch in s.lower() if ch in 'aeiou')\n",
+        "passed": true,
+        "detail": "all 5 tests passed",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-08",
+        "category": "code",
+        "model_answer": "def forge_sorted(a, b):\n  1):\n      ge(n):\n           b = b, a len(a)  resurn a\n",
+        "passed": false,
+        "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 2)",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-09",
+        "category": "code",
+        "model_answer": "def binarangear  n + 1):\n      ged):\n         a, returr) - 1\n     return arn(b):\n           if (lo + hi) //           if arr[mid] == target:\n            return mid\n        if arr[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n",
+        "passed": false,
+        "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 1)",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "code-10",
+        "category": "code",
+        "model_answer": "def flatten(nested):\n    out = []\n    for item in nested:\n        if isinstance(item, list):\n            out.end(nd(item)\n        else:\n            out.append(item)\n    return out\n",
+        "passed": false,
+        "detail": "code did not run: SyntaxError: '(' was never closed (<string>, line 5)",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-01",
+        "category": "math",
+        "model_answer": "432",
+        "passed": true,
+        "detail": "answer 432.0 matches 432.0",
+        "baseline_passed": true
+      },
+      {
+        "task_id": "math-02",
+        "category": "math",
+        "model_answer": "12",
+        "passed": false,
+        "detail": "answer 12.0 != 30.0",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-03",
+        "category": "math",
+        "model_answer": "12",
+        "passed": false,
+        "detail": "answer 12.0 != 5.0",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-04",
+        "category": "math",
+        "model_answer": "320",
+        "passed": false,
+        "detail": "answer 320.0 != 210.0",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-05",
+        "category": "math",
+        "model_answer": "30",
+        "passed": false,
+        "detail": "answer 30.0 != 72.0",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-06",
+        "category": "math",
+        "model_answer": "12",
+        "passed": false,
+        "detail": "answer 12.0 != 36.0",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-07",
+        "category": "math",
+        "model_answer": "2",
+        "passed": true,
+        "detail": "answer 2.0 matches 2.0",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-08",
+        "category": "math",
+        "model_answer": "1",
+        "passed": false,
+        "detail": "answer 1.0 != 42.0",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-09",
+        "category": "math",
+        "model_answer": "1",
+        "passed": false,
+        "detail": "answer 1.0 != 13.0",
+        "baseline_passed": false
+      },
+      {
+        "task_id": "math-10",
+        "category": "math",
+        "model_answer": "120",
+        "passed": false,
+        "detail": "answer 120.0 != 768.0",
+        "baseline_passed": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "curve": [
+    {
+      "epoch": 1,
+      "loss": 3.9801416861662156,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 2,
+      "loss": 3.384944078071914,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 3,
+      "loss": 2.8860824052853915,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 4,
+      "loss": 2.5288058471450894,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 5,
+      "loss": 2.1972089397620143,
+      "dev_pass_rate": 0.0
+    },
+    {
+      "epoch": 6,
+      "loss": 1.9057141080665525,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 7,
+      "loss": 1.6720070762937769,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 8,
+      "loss": 1.5182118100069217,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 9,
+      "loss": 1.367080164243085,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 10,
+      "loss": 1.21817181185694,
+      "dev_pass_rate": 0.1
+    },
+    {
+      "epoch": 11,
+      "loss": 1.1082579167892528,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 12,
+      "loss": 0.9855781194965549,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 13,
+      "loss": 0.9215562608874251,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 14,
+      "loss": 0.832245312065029,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 15,
+      "loss": 0.7753045983485662,
+      "dev_pass_rate": 0.2
+    },
+    {
+      "epoch": 16,
+      "loss": 0.7315996127642438,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 17,
+      "loss": 0.6881614034339507,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 18,
+      "loss": 0.6050429893399083,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 19,
+      "loss": 0.5470664265509585,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 20,
+      "loss": 0.5278953691718944,
+      "dev_pass_rate": 0.2
+    },
+    {
+      "epoch": 21,
+      "loss": 0.5005862493309463,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 22,
+      "loss": 0.4835909954674303,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 23,
+      "loss": 0.46490251975783636,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 24,
+      "loss": 0.4440939470538192,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 25,
+      "loss": 0.42790663166944054,
+      "dev_pass_rate": 0.2
+    },
+    {
+      "epoch": 26,
+      "loss": 0.4138310230899347,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 27,
+      "loss": 0.4110327822589711,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 28,
+      "loss": 0.3959263403505761,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 29,
+      "loss": 0.3632915547935094,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 30,
+      "loss": 0.35093916413156157,
+      "dev_pass_rate": 0.3
+    },
+    {
+      "epoch": 31,
+      "loss": 0.3380126574801074,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 32,
+      "loss": 0.3170222776406679,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 33,
+      "loss": 0.2960481606717034,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 34,
+      "loss": 0.28554101077199573,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 35,
+      "loss": 0.27413163637872606,
+      "dev_pass_rate": 0.3
+    },
+    {
+      "epoch": 36,
+      "loss": 0.266169511313729,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 37,
+      "loss": 0.24988823142067412,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 38,
+      "loss": 0.24088238887753458,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 39,
+      "loss": 0.23214190881722105,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 40,
+      "loss": 0.22535197569039997,
+      "dev_pass_rate": 0.3
+    },
+    {
+      "epoch": 41,
+      "loss": 0.22181739431720654,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 42,
+      "loss": 0.21731014838504417,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 43,
+      "loss": 0.2134838732750679,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 44,
+      "loss": 0.2108504508116681,
+      "dev_pass_rate": null
+    },
+    {
+      "epoch": 45,
+      "loss": 0.2085241147403474,
+      "dev_pass_rate": 0.3
+    }
+  ],
+  "config": {
+    "epochs": 20,
+    "math_per_task": 400,
+    "code_copies": 150,
+    "batch": 64,
+    "lr": 5e-05,
+    "d_model": 96,
+    "n_layer": 2,
+    "n_head": 4,
+    "seed": 1234,
+    "dev_every": 5,
+    "save_every": 5,
+    "out": "checkpoints",
+    "resume": "checkpoints/model-phase1.pt",
+    "smoke": false
+  }
+}
