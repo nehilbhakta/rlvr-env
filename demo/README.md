@@ -38,9 +38,19 @@ folder you cloned — adjust the path to where you put `rlvr-env`.
 cd <path-to>\rlvr-env\demo\backend
 python -m venv .venv
 .\.venv\Scripts\activate
+pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
 uvicorn main:app --host 127.0.0.1 --port 8000
 ```
+
+> The `venv`, the `pip install` steps and `uvicorn` must all run **inside
+> `demo\backend`**, not the repo root — running `uvicorn main:app` from the
+> repo root fails with `Could not import module "main"`.
+>
+> Install torch first from the PyTorch CPU index, then the rest from PyPI.
+> Do **not** put an `--index-url` line in `requirements.txt`: it replaces
+> PyPI entirely and pip then cannot find fastapi, uvicorn, gymnasium and
+> the other packages.
 
 What you should see:
 
@@ -57,9 +67,10 @@ Notes:
   `experiments\tiny-model\checkpoints\model.pt.b64` into `model.pt`
   (1.2 MB) automatically — no separate step needed. The model itself loads
   lazily, on the first Tiny-model run.
-- `pip install -r requirements.txt` installs CPU-only torch from the
-  PyTorch CPU index (the `--index-url` line in the file does that). It is
-  the big download (~200 MB); the rest is small.
+- `pip install torch --index-url https://download.pytorch.org/whl/cpu`
+  installs CPU-only torch from the PyTorch CPU index. It is the big
+  download (~200 MB); the rest (`pip install -r requirements.txt`, from
+  PyPI) is small.
 - If `python` is not on your PATH, use the Python 3.12 installer from
   python.org and tick "Add python.exe to PATH".
 
