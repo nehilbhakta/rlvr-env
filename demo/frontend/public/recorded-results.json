@@ -1,0 +1,714 @@
+{
+  "note": "Recorded results from a real run of the RLVR verifiers. Not a live run \u2014 use the FastAPI backend for live evaluation.",
+  "agents": {
+    "baseline": {
+      "agent": "baseline",
+      "total": 20,
+      "passed": 2,
+      "code_passed": 0,
+      "math_passed": 2,
+      "results": [
+        {
+          "task_id": "code-01",
+          "category": "code",
+          "prompt": "Write a function `add(a, b)` that returns the sum of a and b.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function add not defined"
+        },
+        {
+          "task_id": "code-02",
+          "category": "code",
+          "prompt": "Write a function `is_prime(n)` that returns True if n is a prime number, else False. Treat numbers less than 2 as not prime.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function is_prime not defined"
+        },
+        {
+          "task_id": "code-03",
+          "category": "code",
+          "prompt": "Write a function `reverse_string(s)` that returns s reversed.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function reverse_string not defined"
+        },
+        {
+          "task_id": "code-04",
+          "category": "code",
+          "prompt": "Write a function `fizzbuzz_value(n)` that returns 'FizzBuzz' if n is divisible by both 3 and 5, 'Fizz' if divisible by 3 only, 'Buzz' if divisible by 5 only, otherwise the string form of n.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function fizzbuzz_value not defined"
+        },
+        {
+          "task_id": "code-05",
+          "category": "code",
+          "prompt": "Write a function `factorial(n)` that returns n! for a non-negative integer n. factorial(0) is 1.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function factorial not defined"
+        },
+        {
+          "task_id": "code-06",
+          "category": "code",
+          "prompt": "Write a function `fibonacci(n)` that returns the n-th Fibonacci number, with fibonacci(0) = 0 and fibonacci(1) = 1.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function fibonacci not defined"
+        },
+        {
+          "task_id": "code-07",
+          "category": "code",
+          "prompt": "Write a function `count_vowels(s)` that returns the number of vowels (a, e, i, o, u, case-insensitive) in s.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function count_vowels not defined"
+        },
+        {
+          "task_id": "code-08",
+          "category": "code",
+          "prompt": "Write a function `merge_sorted(a, b)` that takes two sorted lists of numbers and returns one sorted list containing all elements.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function merge_sorted not defined"
+        },
+        {
+          "task_id": "code-09",
+          "category": "code",
+          "prompt": "Write a function `binary_search(arr, target)` that returns the index of target in the sorted list arr, or -1 if target is not present.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function binary_search not defined"
+        },
+        {
+          "task_id": "code-10",
+          "category": "code",
+          "prompt": "Write a function `flatten(nested)` that takes a list that may contain nested lists (one level deep) and returns a flat list of all elements, in order.",
+          "answer": "def f():\n    return None\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "function flatten not defined"
+        },
+        {
+          "task_id": "math-01",
+          "category": "math",
+          "prompt": "What is 17 * 23 + 41? Give only the number.",
+          "answer": "432",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 432.0 matches 432.0"
+        },
+        {
+          "task_id": "math-02",
+          "category": "math",
+          "prompt": "A shirt costs $40 and is discounted by 25%. What is the sale price in dollars? Give only the number.",
+          "answer": "0",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 0.0 != 30.0"
+        },
+        {
+          "task_id": "math-03",
+          "category": "math",
+          "prompt": "Solve for x: 3x + 7 = 22. Give only the number.",
+          "answer": "0",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 0.0 != 5.0"
+        },
+        {
+          "task_id": "math-04",
+          "category": "math",
+          "prompt": "What is the sum of the first 20 positive integers (1 + 2 + ... + 20)? Give only the number.",
+          "answer": "3",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 3.0 != 210.0"
+        },
+        {
+          "task_id": "math-05",
+          "category": "math",
+          "prompt": "A train travels 180 km in 2.5 hours. What is its average speed in km/h? Give only the number.",
+          "answer": "0",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 0.0 != 72.0"
+        },
+        {
+          "task_id": "math-06",
+          "category": "math",
+          "prompt": "What is 15% of 240? Give only the number.",
+          "answer": "0",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 0.0 != 36.0"
+        },
+        {
+          "task_id": "math-07",
+          "category": "math",
+          "prompt": "Solve for x: 2(x - 3) = 4x - 10. Give only the number.",
+          "answer": "0",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 0.0 != 2.0"
+        },
+        {
+          "task_id": "math-08",
+          "category": "math",
+          "prompt": "What is the greatest common divisor (GCD) of 84 and 126? Give only the number.",
+          "answer": "0",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 0.0 != 42.0"
+        },
+        {
+          "task_id": "math-09",
+          "category": "math",
+          "prompt": "A rectangle has length 12 and width 5. What is the length of its diagonal? Give only the number.",
+          "answer": "0",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 0.0 != 13.0"
+        },
+        {
+          "task_id": "math-10",
+          "category": "math",
+          "prompt": "What is 2^10 - 2^8? Give only the number.",
+          "answer": "768",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 768.0 matches 768.0"
+        }
+      ]
+    },
+    "tiny": {
+      "agent": "tiny",
+      "total": 20,
+      "passed": 7,
+      "code_passed": 5,
+      "math_passed": 2,
+      "results": [
+        {
+          "task_id": "code-01",
+          "category": "code",
+          "prompt": "Write a function `add(a, b)` that returns the sum of a and b.",
+          "answer": "def add(a, b):\n    return a + b\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 4 tests passed"
+        },
+        {
+          "task_id": "code-02",
+          "category": "code",
+          "prompt": "Write a function `is_prime(n)` that returns True if n is a prime number, else False. Treat numbers less than 2 as not prime.",
+          "answer": "def is_prime(n):\n    if n ch in s.lower() if ch in 'aeiou')\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 2)"
+        },
+        {
+          "task_id": "code-03",
+          "category": "code",
+          "prompt": "Write a function `reverse_string(s)` that returns s reversed.",
+          "answer": "def reverse_string(s):\n    return s[::-1]\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 4 tests passed"
+        },
+        {
+          "task_id": "code-04",
+          "category": "code",
+          "prompt": "Write a function `fizzbuzz_value(n)` that returns 'FizzBuzz' if n is divisible by both 3 and 5, 'Fizz' if divisible by 3 only, 'Buzz' if divisible by 5 only, otherwise the string form of n.",
+          "answer": "def fizzbuzz_value(n):\n    if n % 15 == 0:\n        return 'FizzBuzz'\n    if n % 2, + 0:\n        return 'Fizz'\n    if n % 5 == 0:\n        return 'Buzz'\n    return str(n)\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "code did not run: SyntaxError: invalid syntax (<string>, line 4)"
+        },
+        {
+          "task_id": "code-05",
+          "category": "code",
+          "prompt": "Write a function `factorial(n)` that returns n! for a non-negative integer n. factorial(0) is 1.",
+          "answer": "def factorial(n):\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 4 tests passed"
+        },
+        {
+          "task_id": "code-06",
+          "category": "code",
+          "prompt": "Write a function `fibonacci(n)` that returns the n-th Fibonacci number, with fibonacci(0) = 0 and fibonacci(1) = 1.",
+          "answer": "def fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 6 tests passed"
+        },
+        {
+          "task_id": "code-07",
+          "category": "code",
+          "prompt": "Write a function `count_vowels(s)` that returns the number of vowels (a, e, i, o, u, case-insensitive) in s.",
+          "answer": "def count_vowels(s):\n    return sum(1 for ch in s.lower() if ch in 'aeiou')\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 5 tests passed"
+        },
+        {
+          "task_id": "code-08",
+          "category": "code",
+          "prompt": "Write a function `merge_sorted(a, b)` that takes two sorted lists of numbers and returns one sorted list containing all elements.",
+          "answer": "def forge_sorted(a, b):\n  1):\n      ge(n):\n           b = b, a len(a)  resurn a\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 2)"
+        },
+        {
+          "task_id": "code-09",
+          "category": "code",
+          "prompt": "Write a function `binary_search(arr, target)` that returns the index of target in the sorted list arr, or -1 if target is not present.",
+          "answer": "def binarangear  n + 1):\n      ged):\n         a, returr) - 1\n     return arn(b):\n           if (lo + hi) //           if arr[mid] == target:\n            return mid\n        if arr[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "code did not run: SyntaxError: unmatched ')' (<string>, line 1)"
+        },
+        {
+          "task_id": "code-10",
+          "category": "code",
+          "prompt": "Write a function `flatten(nested)` that takes a list that may contain nested lists (one level deep) and returns a flat list of all elements, in order.",
+          "answer": "def flatten(nested):\n    out = []\n    for item in nested:\n        if isinstance(item, list):\n            out.end(nd(item)\n        else:\n            out.append(item)\n    return out\n",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "code did not run: SyntaxError: '(' was never closed (<string>, line 5)"
+        },
+        {
+          "task_id": "math-01",
+          "category": "math",
+          "prompt": "What is 17 * 23 + 41? Give only the number.",
+          "answer": "432",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 432.0 matches 432.0"
+        },
+        {
+          "task_id": "math-02",
+          "category": "math",
+          "prompt": "A shirt costs $40 and is discounted by 25%. What is the sale price in dollars? Give only the number.",
+          "answer": "12",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 12.0 != 30.0"
+        },
+        {
+          "task_id": "math-03",
+          "category": "math",
+          "prompt": "Solve for x: 3x + 7 = 22. Give only the number.",
+          "answer": "12",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 12.0 != 5.0"
+        },
+        {
+          "task_id": "math-04",
+          "category": "math",
+          "prompt": "What is the sum of the first 20 positive integers (1 + 2 + ... + 20)? Give only the number.",
+          "answer": "320",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 320.0 != 210.0"
+        },
+        {
+          "task_id": "math-05",
+          "category": "math",
+          "prompt": "A train travels 180 km in 2.5 hours. What is its average speed in km/h? Give only the number.",
+          "answer": "30",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 30.0 != 72.0"
+        },
+        {
+          "task_id": "math-06",
+          "category": "math",
+          "prompt": "What is 15% of 240? Give only the number.",
+          "answer": "12",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 12.0 != 36.0"
+        },
+        {
+          "task_id": "math-07",
+          "category": "math",
+          "prompt": "Solve for x: 2(x - 3) = 4x - 10. Give only the number.",
+          "answer": "2",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 2.0 matches 2.0"
+        },
+        {
+          "task_id": "math-08",
+          "category": "math",
+          "prompt": "What is the greatest common divisor (GCD) of 84 and 126? Give only the number.",
+          "answer": "1",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 1.0 != 42.0"
+        },
+        {
+          "task_id": "math-09",
+          "category": "math",
+          "prompt": "A rectangle has length 12 and width 5. What is the length of its diagonal? Give only the number.",
+          "answer": "1",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 1.0 != 13.0"
+        },
+        {
+          "task_id": "math-10",
+          "category": "math",
+          "prompt": "What is 2^10 - 2^8? Give only the number.",
+          "answer": "120",
+          "passed": false,
+          "reward": 0.0,
+          "detail": "answer 120.0 != 768.0"
+        }
+      ]
+    },
+    "oracle": {
+      "agent": "oracle",
+      "total": 20,
+      "passed": 20,
+      "code_passed": 10,
+      "math_passed": 10,
+      "results": [
+        {
+          "task_id": "code-01",
+          "category": "code",
+          "prompt": "Write a function `add(a, b)` that returns the sum of a and b.",
+          "answer": "def add(a, b):\n    return a + b\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 4 tests passed"
+        },
+        {
+          "task_id": "code-02",
+          "category": "code",
+          "prompt": "Write a function `is_prime(n)` that returns True if n is a prime number, else False. Treat numbers less than 2 as not prime.",
+          "answer": "def is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 8 tests passed"
+        },
+        {
+          "task_id": "code-03",
+          "category": "code",
+          "prompt": "Write a function `reverse_string(s)` that returns s reversed.",
+          "answer": "def reverse_string(s):\n    return s[::-1]\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 4 tests passed"
+        },
+        {
+          "task_id": "code-04",
+          "category": "code",
+          "prompt": "Write a function `fizzbuzz_value(n)` that returns 'FizzBuzz' if n is divisible by both 3 and 5, 'Fizz' if divisible by 3 only, 'Buzz' if divisible by 5 only, otherwise the string form of n.",
+          "answer": "def fizzbuzz_value(n):\n    if n % 15 == 0:\n        return 'FizzBuzz'\n    if n % 3 == 0:\n        return 'Fizz'\n    if n % 5 == 0:\n        return 'Buzz'\n    return str(n)\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 6 tests passed"
+        },
+        {
+          "task_id": "code-05",
+          "category": "code",
+          "prompt": "Write a function `factorial(n)` that returns n! for a non-negative integer n. factorial(0) is 1.",
+          "answer": "def factorial(n):\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 4 tests passed"
+        },
+        {
+          "task_id": "code-06",
+          "category": "code",
+          "prompt": "Write a function `fibonacci(n)` that returns the n-th Fibonacci number, with fibonacci(0) = 0 and fibonacci(1) = 1.",
+          "answer": "def fibonacci(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 6 tests passed"
+        },
+        {
+          "task_id": "code-07",
+          "category": "code",
+          "prompt": "Write a function `count_vowels(s)` that returns the number of vowels (a, e, i, o, u, case-insensitive) in s.",
+          "answer": "def count_vowels(s):\n    return sum(1 for ch in s.lower() if ch in 'aeiou')\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 5 tests passed"
+        },
+        {
+          "task_id": "code-08",
+          "category": "code",
+          "prompt": "Write a function `merge_sorted(a, b)` that takes two sorted lists of numbers and returns one sorted list containing all elements.",
+          "answer": "def merge_sorted(a, b):\n    out, i, j = [], 0, 0\n    while i < len(a) and j < len(b):\n        if a[i] <= b[j]:\n            out.append(a[i]); i += 1\n        else:\n            out.append(b[j]); j += 1\n    return out + a[i:] + b[j:]\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 4 tests passed"
+        },
+        {
+          "task_id": "code-09",
+          "category": "code",
+          "prompt": "Write a function `binary_search(arr, target)` that returns the index of target in the sorted list arr, or -1 if target is not present.",
+          "answer": "def binary_search(arr, target):\n    lo, hi = 0, len(arr) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if arr[mid] == target:\n            return mid\n        if arr[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 5 tests passed"
+        },
+        {
+          "task_id": "code-10",
+          "category": "code",
+          "prompt": "Write a function `flatten(nested)` that takes a list that may contain nested lists (one level deep) and returns a flat list of all elements, in order.",
+          "answer": "def flatten(nested):\n    out = []\n    for item in nested:\n        if isinstance(item, list):\n            out.extend(item)\n        else:\n            out.append(item)\n    return out\n",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "all 4 tests passed"
+        },
+        {
+          "task_id": "math-01",
+          "category": "math",
+          "prompt": "What is 17 * 23 + 41? Give only the number.",
+          "answer": "432",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 432.0 matches 432.0"
+        },
+        {
+          "task_id": "math-02",
+          "category": "math",
+          "prompt": "A shirt costs $40 and is discounted by 25%. What is the sale price in dollars? Give only the number.",
+          "answer": "30",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 30.0 matches 30.0"
+        },
+        {
+          "task_id": "math-03",
+          "category": "math",
+          "prompt": "Solve for x: 3x + 7 = 22. Give only the number.",
+          "answer": "5",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 5.0 matches 5.0"
+        },
+        {
+          "task_id": "math-04",
+          "category": "math",
+          "prompt": "What is the sum of the first 20 positive integers (1 + 2 + ... + 20)? Give only the number.",
+          "answer": "210",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 210.0 matches 210.0"
+        },
+        {
+          "task_id": "math-05",
+          "category": "math",
+          "prompt": "A train travels 180 km in 2.5 hours. What is its average speed in km/h? Give only the number.",
+          "answer": "72",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 72.0 matches 72.0"
+        },
+        {
+          "task_id": "math-06",
+          "category": "math",
+          "prompt": "What is 15% of 240? Give only the number.",
+          "answer": "36",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 36.0 matches 36.0"
+        },
+        {
+          "task_id": "math-07",
+          "category": "math",
+          "prompt": "Solve for x: 2(x - 3) = 4x - 10. Give only the number.",
+          "answer": "2",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 2.0 matches 2.0"
+        },
+        {
+          "task_id": "math-08",
+          "category": "math",
+          "prompt": "What is the greatest common divisor (GCD) of 84 and 126? Give only the number.",
+          "answer": "42",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 42.0 matches 42.0"
+        },
+        {
+          "task_id": "math-09",
+          "category": "math",
+          "prompt": "A rectangle has length 12 and width 5. What is the length of its diagonal? Give only the number.",
+          "answer": "13",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 13.0 matches 13.0"
+        },
+        {
+          "task_id": "math-10",
+          "category": "math",
+          "prompt": "What is 2^10 - 2^8? Give only the number.",
+          "answer": "768",
+          "passed": true,
+          "reward": 1.0,
+          "detail": "answer 768.0 matches 768.0"
+        }
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "code-01",
+      "category": "code",
+      "difficulty": "easy",
+      "prompt": "Write a function `add(a, b)` that returns the sum of a and b.",
+      "function_name": "add",
+      "test_count": 4
+    },
+    {
+      "task_id": "code-02",
+      "category": "code",
+      "difficulty": "easy",
+      "prompt": "Write a function `is_prime(n)` that returns True if n is a prime number, else False. Treat numbers less than 2 as not prime.",
+      "function_name": "is_prime",
+      "test_count": 8
+    },
+    {
+      "task_id": "code-03",
+      "category": "code",
+      "difficulty": "easy",
+      "prompt": "Write a function `reverse_string(s)` that returns s reversed.",
+      "function_name": "reverse_string",
+      "test_count": 4
+    },
+    {
+      "task_id": "code-04",
+      "category": "code",
+      "difficulty": "easy",
+      "prompt": "Write a function `fizzbuzz_value(n)` that returns 'FizzBuzz' if n is divisible by both 3 and 5, 'Fizz' if divisible by 3 only, 'Buzz' if divisible by 5 only, otherwise the string form of n.",
+      "function_name": "fizzbuzz_value",
+      "test_count": 6
+    },
+    {
+      "task_id": "code-05",
+      "category": "code",
+      "difficulty": "easy",
+      "prompt": "Write a function `factorial(n)` that returns n! for a non-negative integer n. factorial(0) is 1.",
+      "function_name": "factorial",
+      "test_count": 4
+    },
+    {
+      "task_id": "code-06",
+      "category": "code",
+      "difficulty": "medium",
+      "prompt": "Write a function `fibonacci(n)` that returns the n-th Fibonacci number, with fibonacci(0) = 0 and fibonacci(1) = 1.",
+      "function_name": "fibonacci",
+      "test_count": 6
+    },
+    {
+      "task_id": "code-07",
+      "category": "code",
+      "difficulty": "easy",
+      "prompt": "Write a function `count_vowels(s)` that returns the number of vowels (a, e, i, o, u, case-insensitive) in s.",
+      "function_name": "count_vowels",
+      "test_count": 5
+    },
+    {
+      "task_id": "code-08",
+      "category": "code",
+      "difficulty": "medium",
+      "prompt": "Write a function `merge_sorted(a, b)` that takes two sorted lists of numbers and returns one sorted list containing all elements.",
+      "function_name": "merge_sorted",
+      "test_count": 4
+    },
+    {
+      "task_id": "code-09",
+      "category": "code",
+      "difficulty": "medium",
+      "prompt": "Write a function `binary_search(arr, target)` that returns the index of target in the sorted list arr, or -1 if target is not present.",
+      "function_name": "binary_search",
+      "test_count": 5
+    },
+    {
+      "task_id": "code-10",
+      "category": "code",
+      "difficulty": "medium",
+      "prompt": "Write a function `flatten(nested)` that takes a list that may contain nested lists (one level deep) and returns a flat list of all elements, in order.",
+      "function_name": "flatten",
+      "test_count": 4
+    },
+    {
+      "task_id": "math-01",
+      "category": "math",
+      "difficulty": "easy",
+      "prompt": "What is 17 * 23 + 41? Give only the number."
+    },
+    {
+      "task_id": "math-02",
+      "category": "math",
+      "difficulty": "easy",
+      "prompt": "A shirt costs $40 and is discounted by 25%. What is the sale price in dollars? Give only the number."
+    },
+    {
+      "task_id": "math-03",
+      "category": "math",
+      "difficulty": "easy",
+      "prompt": "Solve for x: 3x + 7 = 22. Give only the number."
+    },
+    {
+      "task_id": "math-04",
+      "category": "math",
+      "difficulty": "medium",
+      "prompt": "What is the sum of the first 20 positive integers (1 + 2 + ... + 20)? Give only the number."
+    },
+    {
+      "task_id": "math-05",
+      "category": "math",
+      "difficulty": "medium",
+      "prompt": "A train travels 180 km in 2.5 hours. What is its average speed in km/h? Give only the number."
+    },
+    {
+      "task_id": "math-06",
+      "category": "math",
+      "difficulty": "medium",
+      "prompt": "What is 15% of 240? Give only the number."
+    },
+    {
+      "task_id": "math-07",
+      "category": "math",
+      "difficulty": "medium",
+      "prompt": "Solve for x: 2(x - 3) = 4x - 10. Give only the number."
+    },
+    {
+      "task_id": "math-08",
+      "category": "math",
+      "difficulty": "hard",
+      "prompt": "What is the greatest common divisor (GCD) of 84 and 126? Give only the number."
+    },
+    {
+      "task_id": "math-09",
+      "category": "math",
+      "difficulty": "hard",
+      "prompt": "A rectangle has length 12 and width 5. What is the length of its diagonal? Give only the number."
+    },
+    {
+      "task_id": "math-10",
+      "category": "math",
+      "difficulty": "hard",
+      "prompt": "What is 2^10 - 2^8? Give only the number."
+    }
+  ]
+}
