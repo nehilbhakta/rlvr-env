@@ -1,0 +1,18 @@
+# Render Blueprint for the RLVR demo backend.
+# Deploy via Render Dashboard -> New -> Blueprint -> select repo nehilbhakta/rlvr-env.
+# The service runs demo/backend/main.py; the whole repo is cloned, so main.py
+# can still import rlvr_env/* and the tiny-model weights from experiments/.
+services:
+  - type: web
+    name: rlvr-demo-api
+    runtime: python
+    rootDir: demo/backend
+    buildCommand: pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: FRONTEND_URL
+        value: http://localhost:3000
+        # After the Vercel frontend is live, change this to its URL, e.g.
+        # https://rlvr-demo-frontend.vercel.app (comma-separated if several).
+      - key: PYTHON_VERSION
+        value: 3.12.3

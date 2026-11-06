@@ -10,10 +10,12 @@ over the 20 tasks in rlvr_env/tasks.py for three agents:
   startup if model.pt is missing).
 * oracle — each task's reference_solution.
 
-CORS allows only http://localhost:3000. Runs on port 8000.
+CORS allows the frontend origin(s) from the FRONTEND_URL env var
+(comma-separated, default http://localhost:3000). Runs on port 8000.
 """
 
 import base64
+import os
 import re
 import sys
 import threading
@@ -36,9 +38,16 @@ from rlvr_env.tasks import TASKS  # noqa: E402
 ARITH_RE = re.compile(r"(-?\d+(?:\.\d+)?\s*(?:[+\-*/^]\s*-?\d+(?:\.\d+)?\s*)+)")
 
 app = FastAPI(title="RLVR Demo API", version="1.0.0")
+# Frontend origin(s): comma-separated FRONTEND_URL env var, e.g. the Vercel
+# deployment URL once live. Defaults to local dev only.
+FRONTEND_URLS = [
+    o.strip()
+    for o in os.environ.get("FRONTEND_URL", "http://localhost:3000").split(",")
+    if o.strip()
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=FRONTEND_URLS,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )

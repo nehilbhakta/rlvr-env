@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const API = "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
 
 type Task = {
   task_id: string;
@@ -75,7 +75,7 @@ export default function Home() {
           setMode("recorded");
           setTasksError("Backend unreachable — task list loaded from the recorded file.");
         } catch {
-          if (!cancelled) setTasksError("Could not reach the backend (http://localhost:8000) and the recorded file failed to load.");
+          if (!cancelled) setTasksError("Could not reach the backend and the recorded file failed to load.");
         }
       }
     })();
@@ -165,7 +165,7 @@ export default function Home() {
       {mode === "live" && (
         <div className="mode-banner live">
           <span className="dot" /> <strong>Live mode</strong> — connected to the FastAPI
-          backend at http://localhost:8000. Every run executes the real verifiers.
+          backend. Every run executes the real verifiers.
         </div>
       )}
       {mode === "recorded" && (
