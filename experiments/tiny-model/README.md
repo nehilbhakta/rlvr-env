@@ -39,6 +39,59 @@ actually is 1. Say it that way — do not call it "partially learned".
 
 Full per-example outputs are in `results.json`.
 
+## GRPO reinforcement-learning pass (2026-11-06) — did not improve the model
+
+A real GRPO pass was run on top of the SFT checkpoint (`train_grpo.py`):
+group size 8, temperature 1.0, clipped surrogate (eps 0.2), KL penalty
+(beta 0.04, k3 estimator) against the frozen SFT reference, binary
+verifier reward — 1.0 iff the sampled answer passes
+`rlvr_env.rewards.verify`, else 0.0. Prompts were fresh train-split math
+variants (never the held-out ranges) plus the 10 fixed code prompts, 16
+prompts per step (12 math + 4 code). Two runs: the first at lr 1e-5 was
+stopped after 35 steps — sampled reward flat (0.113 → 0.109) and KL only
+0.002, so the policy was barely moving. The second ran 80 steps at lr
+5e-5 (cosine decay), 47.4 minutes on a 4-core CPU, KL settling around
+0.012–0.02 nats. No divergence, no NaN.
+
+Results, greedy decoding, same protocols as the SFT evals:
+
+| Eval | SFT | RL (GRPO) | Baseline |
+| --- | --- | --- | --- |
+| Env's own 20 tasks | **7/20** (code 5/10, math 2/10) | **6/20** (code 5/10, math 1/10) | 2/20 |
+| Held-out 210 variants | **17/210** (code 5/10, math 12/200) | **17/210** (code 5/10, math 12/200) | 40/210 |
+
+The held-out per-task counts are identical in every cell. The fixed-20
+regression is one task: math-01, which the SFT model answered correctly
+(432) and the RL model now answers wrong (412). Sampled reward during
+training stayed flat (~0.11–0.13 mean) and the dev pass rate stayed 4/10
+at every 10-step check.
+
+The policy did move — 86 of the 210 held-out greedy answers changed —
+but toward modal wrong answers ("100", "10", "1") rather than correct
+ones. RL sharpened the model's prior modes instead of finding correct
+answers.
+
+Why it didn't help, honestly:
+
+1. **Sparse binary rewards.** Only ~4–5 of 16 prompt groups per step had
+   any reward variance. On tasks the model never solves (math-01,
+   math-10), every sample scores 0, so the advantage is 0 and there is no
+   gradient at all. RL cannot teach arithmetic the model never samples
+   correctly.
+2. **The model is at its capability ceiling on these templates.** SFT
+   already extracted what this 299K model can do; RL can only
+   redistribute probability among answers the model already produces.
+3. **The KL penalty capped drift near the SFT reference**, so the policy
+   moved but stayed close.
+
+So the SFT checkpoint stays the model in the demo
+(`checkpoints/model.pt` / `model.pt.b64`). The RL checkpoint
+(`checkpoints/model-rl.pt.b64`) is kept only for reproducibility, and
+nothing here claims an RL improvement. The environment itself — verifiable
+rewards, oracle/baseline, honest evals — is the durable artifact; the
+tiny-model experiment's value is showing exactly where a small model
+stops learning.
+
 ## What it cannot do
 
 - **It was trained on variants of these same 20 task templates.** It shows
@@ -49,9 +102,10 @@ Full per-example outputs are in `results.json`.
   percentages, linear equations and Pythagorean triples are beyond what
   this 0.3M-parameter model learned in 45 epochs. A regex calculator still
   beats it on bare arithmetic expressions.
-- **No RL pass was run.** The supervised model had not yet learned the
-  skills an RL reward could reinforce, so RL on top would have been
-  premature. That is the honest next step, not a hidden one.
+- **An RL pass was run and did not help.** See the GRPO section above:
+  80 steps at lr 5e-5 moved the policy (KL ~0.02) but held-out stayed
+  17/210 and the fixed-20 score went 7/20 → 6/20. The SFT checkpoint
+  remains the demo model.
 
 ## How it was trained
 
@@ -78,6 +132,8 @@ pip install gymnasium
 cd checkpoints && python decode_weights.py && cd ..   # weights are stored as base64 text
 python evaluate_trained.py   # scores the checkpoint on held-out variants
 python train.py              # retrains from scratch on CPU (~35 min)
+python train_grpo.py         # GRPO pass on the SFT checkpoint (~50 min, CPU)
+python eval_fixed20.py       # scores a checkpoint on the env's 20 original tasks
 ```
 
 `train.py` defaults (d_model=128, 3 layers, lr 3e-4, 20 epochs) are not the
@@ -88,11 +144,24 @@ what `evaluate_trained.py` uses.
 ## Files
 
 - `train.py` — training loop (with `--resume` and `--save-every`)
+- `train_grpo.py` — GRPO reinforcement-learning pass on the SFT checkpoint
+  (writes `checkpoints/model-rl.pt`; the SFT checkpoint is never overwritten)
 - `model.py` — tiny transformer
 - `data.py` — variant generators (train/test splits)
 - `evaluate_trained.py` — held-out evaluation with the env verifiers
-- `results.json` — full evaluation output (per-example)
+- `eval_fixed20.py` — greedy evaluation on the env's 20 original tasks
+- `results.json` — full SFT evaluation output (per-example)
+- `results-rl.json` — full RL evaluation output, held-out 210 (per-example)
+- `results-rl-fixed20.json` — RL evaluation on the env's 20 original tasks
+- `results-sft-fixed20.json` — SFT evaluation on the env's 20 original tasks
+  (re-run with `eval_fixed20.py` for a clean before/after)
 - `training_curve.json` / `training_curve.csv` — loss (and dev pass rate) per epoch
+- `grpo_curve.json` — per-step reward, KL and dev pass rate for the 80-step
+  GRPO run at lr 5e-5; `grpo_curve_lr1e-5.json` is the aborted 35-step run at
+  lr 1e-5 (policy barely moved)
 - `checkpoints/model.pt.b64` — trained weights, base64-encoded (1.2 MB decoded);
   run `checkpoints/decode_weights.py` to get `model.pt`
+- `checkpoints/model-rl.pt.b64` — GRPO checkpoint (80 steps, lr 5e-5),
+  base64-encoded; kept for reproducibility only — it scores worse than the
+  SFT checkpoint (6/20 vs 7/20) and is NOT the demo model
 - `checkpoints/decode_weights.py` — decodes the weights
