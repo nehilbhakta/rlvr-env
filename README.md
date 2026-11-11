@@ -83,7 +83,8 @@ A 299,136-parameter decoder-only transformer trained from scratch on
 generated variants of these 20 tasks lives in
 [`experiments/tiny-model/`](experiments/tiny-model/) — 4,197 training
 examples, 45 epochs, CPU-only, ~35 minutes, training loss 3.98 → 0.21.
-No RL pass was run.
+A GRPO pass was run on top of the SFT checkpoint afterwards; it did not
+improve the model (see the GRPO follow-up below).
 
 | Agent | Code | Math | Total |
 | --- | --- | --- | --- |
@@ -102,13 +103,25 @@ the GCD actually is 1. Full results, per-example outputs, and the "what it
 cannot do" list are in
 [`experiments/tiny-model/README.md`](experiments/tiny-model/README.md).
 
+**GRPO follow-up (2026-11-06).** The SFT checkpoint was fine-tuned with
+GRPO (group size 8, temperature 1.0, clipped surrogate ε=0.2, KL penalty
+β=0.04 against the frozen SFT model, binary verifier rewards; 80 steps at
+lr 5e-5, 47.4 minutes on CPU). It did not help: on the env's 20 tasks the
+model went 7/20 → 6/20 (it lost math-01, answering 412 instead of 432),
+and on the 210 held-out variants it scored an identical 17/210. Sampled
+reward stayed flat (~0.11–0.13): with sparse binary rewards, tasks the
+model never solves produce no gradient, so RL sharpened the model's
+existing answer modes instead of teaching new skills. A null result,
+reported as one — full details in the experiment README.
+
 ## Honest limitations
 
-- **A model was trained on it — once, small, supervised.**
-  `experiments/tiny-model/` is a from-scratch SFT run, not an RL run. A
-  next step would be wiring the env to a real RL loop (e.g. GRPO
-  fine-tuning of a small model with TRL) using the verifiers as the
-  reward — the env's Gymnasium API is designed for that.
+- **A model was trained on it — small, twice.**
+  `experiments/tiny-model/` is a from-scratch SFT run plus one GRPO pass
+  on top of it; the GRPO pass did not improve on SFT (see above). At
+  299K parameters the bottleneck is the model's capability, not the
+  reward signal — the interesting next experiment is the same loop on a
+  larger model, not more steps on this one.
 - **Binary rewards.** A submission is 1.0 or 0.0; there is no partial credit
   for code that passes most tests. That is deliberate — verifiable rewards
   are sharp — but it makes the reward signal sparse.
