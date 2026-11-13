@@ -1,5 +1,7 @@
 # RLVR Environment — Verifiable Rewards for ML/Coding/Math Tasks
 
+**Live demo: https://nehilbhakta-rlvr-demo.vercel.app**
+
 A small, real reinforcement-learning environment where the reward comes
 **only** from an automated verifier — unit tests for code tasks, exact-answer
 matching for math tasks. No LLM calls, no model judgement, no fake scores.
